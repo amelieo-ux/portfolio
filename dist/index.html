@@ -369,7 +369,7 @@
       </div>
     </div>
     <!--Footer-->
-    <div
+    <div id="modal-footer"
       class="z-50 flex justify-end modal-container bg-gray-200 w-11/12 md:max-w-2xl mx-auto rounded-lg rounded-t-none">
       <button
         class="modal-close bg-primary-100 hover:bg-primary-80 text-white font-bold py-2 px-4 rounded-full my-4 mr-4">Schließen</button>
@@ -432,6 +432,7 @@
     const modal = document.getElementById('modal');
     const modalhead = document.getElementById('modal-head');
     const modalclose = document.getElementById('modal-close');
+    const modalfooter = document.getElementById('modal-footer');
 
     toggle.addEventListener('click', () => {
 
@@ -449,17 +450,25 @@
         modalhead.classList.add('bg-gray-900');
         modalclose.classList.remove('text-black');
         modalclose.classList.add('text-white');
+        modalfooter.classList.remove('bg-gray-200');
+        modalfooter.classList.add('bg-gray-800');
 
       } else {
         toggle.innerHTML = "🌙";
-        body.classList.remove('text-gray-100');
         body.classList.add('text-gray-900');
-        profile.classList.remove('bg-gray-900');
+        body.classList.remove('text-gray-100');
         profile.classList.add('bg-white');
+        profile.classList.remove('bg-gray-900');
         modal.classList.add('text-gray-900');
         modal.classList.remove('text-gray-100');
         modal.classList.add('bg-white');
         modal.classList.remove('bg-gray-900');
+        modalhead.classList.add('bg-white');
+        modalhead.classList.remove('bg-gray-900');
+        modalclose.classList.add('text-black');
+        modalclose.classList.remove('text-white');
+        modalfooter.classList.add('bg-gray-200');
+        modalfooter.classList.remove('bg-gray-800');
       }
     });
 
