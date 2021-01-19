@@ -1,0 +1,29 @@
+{
+    "name": "TailwindStarterTemplate",
+    "version": "1.0.0",
+    "description": "Tailwind Starter Template",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tailwindtoolbox/StarterTemplate.git"
+    },
+    "main": "postcss.config.js",
+    "dependencies": {
+        "autoprefixer": "^9.6.0",
+        "postcss": "^8.2.4",
+        "postcss-cli": "^8.3.1",
+        "rimraf": "^2.6.3"
+    },
+    "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^1.3.0",
+        "cssnano": "^4.1.10",
+        "tailwindcss": "^1.9.6",
+        "tailwindcss-blend-mode": "^1.0.0"
+    },
+    "scripts": {
+        "del:js": "rimraf tailwind.config.js",
+        "create:js": "./node_modules/.bin/tailwind init tailwind.config.js",
+        "dev:css": "tailwind build tailwind.config.css -c tailwind.config.js -o dist/css/tailwind.css",
+        "build:css": "postcss tailwind.config.css -o dist/css/tailwind-small.css"
+    }
+}
