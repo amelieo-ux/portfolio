@@ -30,7 +30,7 @@ module.exports = {
         ]
       },
     }
-  }
+  },
     variants: { // all the following default to ['responsive']
     mixBlendMode: ['responsive'],
     backgroundBlendMode: ['responsive'],
