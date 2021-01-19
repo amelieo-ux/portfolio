@@ -108,7 +108,7 @@
 
   <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex-col items-center justify-center"
     style="background-color:rgba(20,20,20,0.7); background-blend-mode: multiply;">
-    <div class="modal-container bg-white w-11/12 md:max-w-2xl mx-auto rounded-lg rounded-b-none overflow-y-auto mt-24"
+    <div id="modal" class="modal-container bg-white w-11/12 md:max-w-2xl mx-auto rounded-lg rounded-b-none overflow-y-auto mt-24"
       style="height: 70%;">
 
       <div
@@ -125,10 +125,10 @@
       <!-- Add margin if you want to see some of the overlay behind the modal-->
       <div class="modal-content py-4 text-left px-6">
         <!--Title-->
-        <div class="modal-container flex justify-between items-center pb-3 bg-white">
+        <div id="modal-head" class="text-gray-900 modal-container flex justify-between items-center pb-3 bg-white">
           <p class="text-3xl font-bold text-primary-100 pt-8 lg:pt-0">Impressum und Datenschutz</p>
           <div class="modal-close cursor-pointer">
-            <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+            <svg id="modal-close" class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
               viewBox="0 0 18 18">
               <path
                 d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
@@ -429,7 +429,9 @@
     const toggle = document.querySelector('.js-change-theme');
     const body = document.querySelector('body');
     const profile = document.getElementById('profile');
-
+    const modal = document.getElementById('modal');
+    const modalhead = document.getElementById('modal-head');
+    const modalclose = document.getElementById('modal-close');
 
     toggle.addEventListener('click', () => {
 
@@ -439,13 +441,25 @@
         body.classList.add('text-gray-100');
         profile.classList.remove('bg-white');
         profile.classList.add('bg-gray-900');
+        modal.classList.remove('text-gray-900');
+        modal.classList.add('text-gray-100');
+        modal.classList.remove('bg-white');
+        modal.classList.add('bg-gray-900');
+        modalhead.classList.remove('bg-white');
+        modalhead.classList.add('bg-gray-900');
+        modalclose.classList.remove('text-black');
+        modalclose.classList.add('text-white');
+
       } else {
         toggle.innerHTML = "🌙";
         body.classList.remove('text-gray-100');
         body.classList.add('text-gray-900');
         profile.classList.remove('bg-gray-900');
         profile.classList.add('bg-white');
-
+        modal.classList.add('text-gray-900');
+        modal.classList.remove('text-gray-100');
+        modal.classList.add('bg-white');
+        modal.classList.remove('bg-gray-900');
       }
     });
 
